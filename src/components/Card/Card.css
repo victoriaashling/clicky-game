@@ -1,0 +1,55 @@
+.card {
+  margin-bottom: 12%;
+}
+
+.card:hover {
+  transform: scale(1.08);
+}
+
+.red {
+  color: red;
+}
+
+.orange {
+  color: orange;
+}
+
+.yellow {
+  color: yellow;
+}
+
+.yellowgreen {
+  color: yellowgreen;
+}
+
+.green {
+  color: green;
+}
+
+.skyblue {
+  color: rgb(184, 233, 252);
+}
+
+.blue {
+  color: blue;
+}
+
+.indigo {
+  color: indigo;
+}
+
+.lavender {
+  color: lavender;
+}
+
+.purple {
+  color: purple;
+}
+
+.pink {
+  color: pink;
+}
+
+.brown {
+  color: brown;
+}

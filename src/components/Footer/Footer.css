@@ -1,0 +1,13 @@
+footer {
+    height: 4rem;
+    width: 100vw;
+    padding: 1em 2em;
+    background-color: #555;
+    color: white;
+    position: absolute;
+    bottom: 0;
+}
+
+.fa-heart {
+    color: white;
+}
