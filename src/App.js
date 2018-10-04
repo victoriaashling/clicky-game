@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import "./App.css";
-import Jumbotron from "./components/Jumbotron/Jumbotron";
-import ScoreBar from "./components/ScoreBar/ScoreBar";
-import Footer from "./components/Footer/Footer";
+import Jumbotron from "./components/Jumbotron";
+import ScoreBar from "./components/ScoreBar";
+import Footer from "./components/Footer";
 import GameContainer from "./components/GameContainer";
 import Card from "./components/Card";
 
 class App extends Component {
   state = {
-    verdict: "Hello",
+    verdict: "Welcome! Click any card to get started.",
     currentScore: 0,
     topScore: 0,
     cards: ["red", "orange", "yellow", "yellowgreen", "green", "sky blue", "blue", "indigo", "lavender", "purple", "pink", "brown"],
@@ -24,11 +24,25 @@ class App extends Component {
     let newId = event.currentTarget.id;
     console.log(newId);
     if (this.state.clickedThisRound.includes(newId)) {
+      if (this.state.currentScore > this.state.topScore) {
+        this.setState({topScore: this.state.currentScore});
+        this.setState({verdict: "You've set a new high score!"})
+      }
+      else {
+        this.setState({verdict: "You've lost!"})
+      }
       this.resetGame();
     }
     else {
-      this.setState({ clickedThisRound: [...this.state.clickedThisRound, newId]}, () => console.log(this.state.clickedThisRound));
-      this.setState({currentScore: this.state.currentScore + 1});
+      this.setState({verdict: "..."});
+      this.setState({ clickedThisRound: [...this.state.clickedThisRound, newId]});
+      this.setState({currentScore: this.state.currentScore + 1}, () => {
+        if (this.state.currentScore === 12) {
+          this.setState({topScore: 12});
+          this.setState({verdict: "You've won!"});
+          this.resetGame();
+        }
+      });
       this.shuffleCards(this.state.cards);
     }
   }
